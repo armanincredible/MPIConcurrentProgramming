@@ -1,3 +1,5 @@
 .vscode
 *.o
 do
+*.out
+*.txt
