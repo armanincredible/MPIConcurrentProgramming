@@ -67,7 +67,8 @@ private:
 
 int main(void)
 {
-    IntegralSolver solver(0.001, 1.0, 1410065400, 4);  
+    const int threadsCount = 4;
+    IntegralSolver solver(0.001, 1.0, 100000000, threadsCount);  
     solver.start();
 
     std::cout << "Integral result is: " << solver.getResult() << std::endl;
