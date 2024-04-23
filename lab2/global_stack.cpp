@@ -73,12 +73,15 @@ private:
         Task_t task;
 
         for ( ;; )
-        {
+        {   
+            // Get one interval from global stack
             {
+                // Wait for a new task
                 gHasTaskMutex.lock();
 
                 std::lock_guard<std::mutex> scoped_lock{ gStackMutex};
 
+                // If we have task, there must be task in global stack
                 assert( !gStack.empty() );
 
                 {
@@ -99,6 +102,7 @@ private:
                 gActiveThreads++;
             }
 
+            // Integrate one interval using local stack
             {
                 double result = 0;
                 std::vector<Task_t> stack;
