@@ -1,0 +1,7 @@
+omptest
+omptest.*
+simple
+parallel
+*.o
+.vscode
+*.out
